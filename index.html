@@ -4,41 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Potion Recipe Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css" />
     <script src="./js/main.js" type="module"></script>
   </head>
   <body>
     <h1>Potion Recipe Game</h1>
     <p>Create a healing potion! You need: 2 Herbs, 1 Berry, and 1 Mushroom.</p>
-    <div>
-      <div class="ingredients" id="ingredients">
-        <!-- <div>
-          <button id="addHerbs">Add Herbs</button>
-          <p id="herbsAmount"></p>
-        </div>
-        <div>
-          <button id="addBerries">Add Berries</button>
-          <p id="berriesAmount"></p>
-        </div>
-        <div>
-          <button id="addMushrooms">Add Mushrooms</button>
-          <p id="mushroomsAmount"></p>
-        </div>
-        <div>
-          <button id="addWater">Add Water</button>
-          <p id="waterAmount"></p>
-        </div>
-        <div>
-          <button id="addFlowers">Add Flowers</button>
-          <p id="flowersAmount"></p>
-        </div> -->
+    <div class="brew-area">
+      <div class="ingredients" id="ingredients"></div>
+      <div class="brew-buttons">
+        <button id="brew">Brew Potion</button>
+        <button id="reset">Reset Potion</button>
       </div>
-      <button id="brew">Brew Potion</button>
-      <button id="reset">Reset Potion</button>
     </div>
-    <div>
-      <p id="potionResultText">Results of your potion:</p>
+    <div class="result-area">
+      <p id="potionResultText">Results of your brew:</p>
       <img id="potionResultImage" src="" alt="" />
     </div>
+    <div class="background"></div>
   </body>
 </html>

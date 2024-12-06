@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    font-family: "MedievalSharp", cursive;
+    color: white;
+    background-color: black;
+}
+
+div.background {
+    position: absolute;
+    background-image: url(../public/images/background/potion-shop.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 15%;
+    height: 100%;
+    width: 100%;
+    z-index: -10;
+    top: 0;
+    left: 0;
+    
+}
+
+h1 {
+}
+
+body > p {
+}
+
+button {
+    background-color: rgb(165, 101, 42);
+    color:white;
+    font-family: "MedievalSharp", cursive;
+    border-radius: 4px;
+    border: none;
+    padding: 8px 16px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+button:hover {
+transform: scale(1.03);
+}
+
+/** brew area: */
+
+.brew-area {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.brew-area .ingredients {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+}
+
+/** element created by javascript: */
+.brew-area .ingredients div.ingredient {
+    display: grid;
+    gap: 8px;
+}
+
+/** element created by javascript: */
+.brew-area .ingredients div.ingredient > button {
+}
+
+/** element created by javascript: */
+.brew-area .ingredients div.ingredient p {
+}
+
+.brew-area .brew-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.brew-area .brew-buttons button {
+    width: 100%;
+    padding: 16px 0;
+}
+
+.brew-area .brew-buttons button#brew {
+    background-color: rgb(113, 113, 238);
+    flex: 3;
+}
+
+.brew-area .brew-buttons button#reset {
+    background-color: rgb(238, 113, 130);
+    flex: 1;
+}
+
+/** result area:  */
+
+.result-area {
+    display: grid;
+    justify-content: center;
+    gap: 16px;
+}
+
+.result-area p {
+}
+
+.result-area img {
+    height: 200px;
+    border-radius: 999px;
+}

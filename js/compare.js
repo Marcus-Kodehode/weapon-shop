@@ -15,7 +15,6 @@ export function checkPotionIngredients(potion) {
     .map(([, value]) => value);
 }
 
-//TODO 1 fortsett her:
 export function getPotion(potion) {
   return potions[potion];
 }

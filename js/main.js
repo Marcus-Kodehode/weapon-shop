@@ -17,12 +17,14 @@ import {
   ingredients,
   resetIngredients,
 } from "./ingredients.js";
-import { potions } from "./potions.js";
+import { baseImageUrl, potions } from "./potions.js";
 
 const brew = document.getElementById("brew");
 const reset = document.getElementById("reset");
 const potionResultText = document.getElementById("potionResultText");
 const potionResultImage = document.getElementById("potionResultImage");
+
+potionResultImage.src = baseImageUrl("empty")
 
 Object.keys(ingredients).forEach((ingredient) => {
   ingredientsButtons.insertAdjacentHTML(
@@ -53,39 +55,26 @@ Object.keys(ingredients).forEach((ingredient) => {
 
 brew.addEventListener("click", () => {
   let matchingPotion = null;
+  let matchingPotionName = null;
   for (const potionName in potions) {
     if (checkIfIngredientsMatchPotion(potionName)) {
       matchingPotion = potions[potionName];
+      matchingPotionName = potionName;
       break;
     }
   }
 
-  //TODO 2 fiks here videre etter todo1
-
-  console.log(matchingPotion);
-  console.log(getPotion(matchingPotion));
-  console.log(potionResultText);
-  console.log(potionResultText.textContent);
-  console.log(potionResultImage);
-  console.log(potionResultImage.src);
-  console.log(currentPotion);
-
-  console.log(getPotion(matchingPotion).image);
 
   if (matchingPotion) {
-    potionResultText.textContent = getPotion(matchingPotion).name;
-    potionResultImage.src = getPotion(matchingPotion).image;
+    potionResultText.textContent = getPotion(matchingPotionName).name;
+    potionResultImage.src = getPotion(matchingPotionName).image;
   }
 });
 
 console.log(getPotion("healingPotion"));
-// reset.addEventListener("click", () => {
-//   resetIngredients();
-//   potionResultText.textContent = currentPotion.name;
-//   potionResultImage.src = currentPotion.image;
-// });
+reset.addEventListener("click", () => {
+  resetIngredients();
+  potionResultText.textContent = "Results of your brew:";
+  potionResultImage.src = baseImageUrl("empty")
+});
 
-// console.log(checkPotionIngredients("strengthPotion"));
-// console.log(checkAllIngredientsAmount());
-
-// console.log(checkIfIngredientsMatchPotion("strengthPotion"));
