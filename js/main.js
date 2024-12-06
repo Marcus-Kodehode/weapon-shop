@@ -10,6 +10,7 @@ import checkAllIngredientsAmount, {
   checkIfIngredientsMatchPotion,
   checkPotionIngredients,
   currentPotion,
+  getPotion,
 } from "./compare.js";
 import {
   increaseAmount,
@@ -60,18 +61,22 @@ brew.addEventListener("click", () => {
   }
 
   console.log(matchingPotion);
+  console.log(getPotion(matchingPotion));
   console.log(potionResultText);
   console.log(potionResultText.textContent);
   console.log(potionResultImage);
   console.log(potionResultImage.src);
   console.log(currentPotion);
 
+  console.log(getPotion(matchingPotion).image);
+
   if (matchingPotion) {
-    potionResultText.textContent = matchingPotion.name;
-    potionResultImage.src = matchingPotion.image;
+    potionResultText.textContent = getPotion(matchingPotion).name;
+    potionResultImage.src = getPotion(matchingPotion).image;
   }
 });
 
+console.log(getPotion("healingPotion"));
 // reset.addEventListener("click", () => {
 //   resetIngredients();
 //   potionResultText.textContent = currentPotion.name;

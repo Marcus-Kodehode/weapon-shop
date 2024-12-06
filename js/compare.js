@@ -15,6 +15,10 @@ export function checkPotionIngredients(potion) {
     .map(([, value]) => value);
 }
 
+export function getPotion(potion) {
+  return potions[potion];
+}
+
 export function checkIfIngredientsMatchPotion(potionName) {
   const currentIngredients = checkAllIngredientsAmount().toString();
   const potionIngredients = checkPotionIngredients(potionName).toString();

@@ -26,5 +26,8 @@ export function resetIngredients() {
     if (amountElement) {
       amountElement.textContent = ingredients[ingredient].amount;
     }
+    // amountElement
+    // ? (amountElement.textContent = ingredients[ingredient].amount)
+    // : null;
   });
 }
