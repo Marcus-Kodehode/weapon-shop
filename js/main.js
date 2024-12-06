@@ -60,6 +60,8 @@ brew.addEventListener("click", () => {
     }
   }
 
+  //TODO 2 fiks here videre etter todo1
+
   console.log(matchingPotion);
   console.log(getPotion(matchingPotion));
   console.log(potionResultText);
