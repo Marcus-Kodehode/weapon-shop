@@ -13,7 +13,11 @@ export default function ingredientAmount(ingredient) {
 // console.log(ingredients["herbs"]);
 
 export function increaseAmount(ingredient) {
-  return ingredients[ingredient].amount++;
+  ingredients[ingredient].amount === 10 ? false : ingredients[ingredient].amount++;
+}
+
+export function decreaseAmount(ingredient) {
+  ingredients[ingredient].amount === 0 ? false :ingredients[ingredient].amount--;
 }
 
 export function resetIngredients() {

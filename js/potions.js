@@ -1,8 +1,11 @@
-export const baseImageUrl = (potion) =>
-  `./public/images/potions/${potion}-potion.webp`;
+
+// Function that can be called to get the potion image url
+export const baseImageUrl = (potion) => {
+  return `./public/images/potions/${potion}-potion.webp`;
+}
 
 
-
+// All potions, created as objects (for easier reference)
 export const potions = {
   healingPotion: {
     herbs: 2,
