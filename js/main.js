@@ -4,14 +4,13 @@
 // const addWater = document.getElementById("addWater");
 // const addFlowers = document.getElementById("addFlowers");
 
-const ingredientsButtons = document.getElementById("ingredients");
-
 import checkAllIngredientsAmount, {
   checkIfIngredientsMatchPotion,
   checkPotionIngredients,
   currentPotion,
   getPotion,
 } from "./compare.js";
+import { imagesToPreload } from "./imagesLoad.js";
 import {
   increaseAmount,
   ingredients,
@@ -19,6 +18,9 @@ import {
 } from "./ingredients.js";
 import { baseImageUrl, potions } from "./potions.js";
 
+imagesToPreload();
+
+const ingredientsButtons = document.getElementById("ingredients");
 const brew = document.getElementById("brew");
 const reset = document.getElementById("reset");
 const potionResultText = document.getElementById("potionResultText");
@@ -77,4 +79,5 @@ reset.addEventListener("click", () => {
   potionResultText.textContent = "Results of your brew:";
   potionResultImage.src = baseImageUrl("empty")
 });
+
 
