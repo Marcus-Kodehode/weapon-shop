@@ -18,7 +18,9 @@ import {
 } from "./ingredients.js";
 import { baseImageUrl, potions } from "./potions.js";
 
-imagesToPreload();
+document.addEventListener('DOMContentLoaded', () => {
+  imagesToPreload();
+});
 
 const ingredientsButtons = document.getElementById("ingredients");
 const brew = document.getElementById("brew");

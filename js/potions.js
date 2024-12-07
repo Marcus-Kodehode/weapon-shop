@@ -1,5 +1,7 @@
 export const baseImageUrl = (potion) =>
-  `../public/images/potions/${potion}-potion.webp`;
+  `./public/images/potions/${potion}-potion.webp`;
+
+
 
 export const potions = {
   healingPotion: {
@@ -42,7 +44,7 @@ export const potions = {
     mushrooms: 2,
     flowers: 1,
     name: "Night Vision Potion",
-    image: baseImageUrl("night-vision"),
+    image: baseImageUrl("nightvision"),
   },
   fireResistancePotion: {
     herbs: 2,
