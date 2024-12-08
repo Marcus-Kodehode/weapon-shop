@@ -1,3 +1,5 @@
+import checkAllIngredientsAmount from "./compare.js";
+
 export const ingredients = {
   herbs: { ingredientName: "herbs", amount: 0, id: "addHerbs" },
   berries: { ingredientName: "berries", amount: 0, id: "addBerries" },
@@ -13,11 +15,21 @@ export default function ingredientAmount(ingredient) {
 // console.log(ingredients["herbs"]);
 
 export function increaseAmount(ingredient) {
-  ingredients[ingredient].amount === 10 ? false : ingredients[ingredient].amount++;
+  if (ingredients[ingredient].amount >= 10) {
+    return ingredients[ingredient].amount;
+  } else {
+    return ingredients[ingredient].amount++;
+  }
+
 }
 
 export function decreaseAmount(ingredient) {
-  ingredients[ingredient].amount === 0 ? false :ingredients[ingredient].amount--;
+  if (ingredients[ingredient].amount <= 0) {
+    return ingredients[ingredient].amount;
+  } else {
+    return ingredients[ingredient].amount--;
+  }
+
 }
 
 export function resetIngredients() {

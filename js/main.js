@@ -58,6 +58,7 @@ Object.keys(ingredients).forEach((ingredient) => {
 
   const addButton = document.getElementById(`${ingredients[ingredient].id}-add`);
   const subtractButton = document.getElementById(`${ingredients[ingredient].id}-subtract`);
+  
     addButton.addEventListener("click", () => {
       increaseAmount(ingredient);
       const amountElement = document.getElementById(
