@@ -4,10 +4,7 @@
 // const addWater = document.getElementById("addWater");
 // const addFlowers = document.getElementById("addFlowers");
 
-import {
-  checkIfIngredientsMatchPotion,
-  getPotion,
-} from "./compare.js";
+import { checkIfIngredientsMatchPotion, getPotion } from "./compare.js";
 import { imagesToPreload } from "./imagesLoad.js";
 import {
   decreaseAmount,
@@ -18,21 +15,19 @@ import {
 import { baseImageUrl, potions } from "./potions.js";
 
 // Load in all dynamic images so they are included in the build:
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   imagesToPreload();
 });
 
-
-// Get all the DOM elements needed: 
+// Get all the DOM elements needed:
 const ingredientsButtons = document.getElementById("ingredients");
 const brew = document.getElementById("brew");
 const reset = document.getElementById("reset");
 const potionResultText = document.getElementById("potionResultText");
 const potionResultImage = document.getElementById("potionResultImage");
 
-
 // initialy set the image to an empty potion:
-potionResultImage.src = baseImageUrl("empty")
+potionResultImage.src = baseImageUrl("empty");
 
 // Loop through the ingredients and add them to the DOM as buttons:
 Object.keys(ingredients).forEach((ingredient) => {
@@ -56,23 +51,27 @@ Object.keys(ingredients).forEach((ingredient) => {
   `
   );
 
-  const addButton = document.getElementById(`${ingredients[ingredient].id}-add`);
-  const subtractButton = document.getElementById(`${ingredients[ingredient].id}-subtract`);
-  
-    addButton.addEventListener("click", () => {
-      increaseAmount(ingredient);
-      const amountElement = document.getElementById(
-        `${ingredients[ingredient].id}-amount`
-      );
-        amountElement.textContent = ingredients[ingredient].amount;
-    });
-    subtractButton.addEventListener("click", () => {
-      decreaseAmount(ingredient);
-      const amountElement = document.getElementById(
-        `${ingredients[ingredient].id}-amount`
-      );
-        amountElement.textContent = ingredients[ingredient].amount;
-    });
+  const addButton = document.getElementById(
+    `${ingredients[ingredient].id}-add`
+  );
+  const subtractButton = document.getElementById(
+    `${ingredients[ingredient].id}-subtract`
+  );
+
+  addButton.addEventListener("click", () => {
+    increaseAmount(ingredient);
+    const amountElement = document.getElementById(
+      `${ingredients[ingredient].id}-amount`
+    );
+    amountElement.textContent = ingredients[ingredient].amount;
+  });
+  subtractButton.addEventListener("click", () => {
+    decreaseAmount(ingredient);
+    const amountElement = document.getElementById(
+      `${ingredients[ingredient].id}-amount`
+    );
+    amountElement.textContent = ingredients[ingredient].amount;
+  });
 });
 
 brew.addEventListener("click", () => {
@@ -83,21 +82,18 @@ brew.addEventListener("click", () => {
       matchingPotion = potions[potionName];
       matchingPotionName = potionName;
     }
-    resetIngredients();
   }
-
 
   if (matchingPotion) {
     potionResultText.textContent = getPotion(matchingPotionName).name;
     potionResultImage.src = getPotion(matchingPotionName).image;
   }
+  resetIngredients();
 });
 
 console.log(getPotion("healingPotion"));
 reset.addEventListener("click", () => {
   resetIngredients();
   potionResultText.textContent = "Results of your brew:";
-  potionResultImage.src = baseImageUrl("empty")
+  potionResultImage.src = baseImageUrl("empty");
 });
-
-
