@@ -9,10 +9,14 @@ export default function checkAllIngredientsAmount() {
   );
 }
 
-export function checkPotionIngredients(potion) {
+export function getPotionIngredients(potion) {
   return Object.entries(potions[potion])
     .filter(([key]) => key !== "image" && key !== "name")
     .map(([, value]) => value);
+}
+
+export function getPotionIngredient(potion, ingredient) {
+  return potions[potion][ingredient];
 }
 
 export function getPotion(potion) {
@@ -21,7 +25,7 @@ export function getPotion(potion) {
 
 export function checkIfIngredientsMatchPotion(potionName) {
   const currentIngredients = checkAllIngredientsAmount().toString();
-  const potionIngredients = checkPotionIngredients(potionName).toString();
+  const potionIngredients = getPotionIngredients(potionName).toString();
   if (currentIngredients === potionIngredients) {
     return (currentPotion = potions[potionName]);
   }

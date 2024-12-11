@@ -1,3 +1,5 @@
+
+import { createAlmanac } from "./almanac.js";
 import { checkIfIngredientsMatchPotion, getPotion } from "./compare.js";
 import { potionImagesToPreload } from "./imagesLoad.js";
 import {
@@ -14,11 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Get all the DOM elements needed:
-const ingredientArea = document.getElementById("ingredients");
-const brew = document.getElementById("brew");
-const reset = document.getElementById("reset");
-const potionResultText = document.getElementById("potionResultText");
-const potionResultImage = document.getElementById("potionResultImage");
+export const ingredientArea = document.getElementById("ingredients");
+export const brew = document.getElementById("brew");
+export const reset = document.getElementById("reset");
+export const potionResultText = document.getElementById("potionResultText");
+export const potionResultImage = document.getElementById("potionResultImage");
+export const almanac = document.getElementById("almanac");
+export const almanacButton = document.getElementById("almanac-button");
+export const almanacContent = document.getElementById("almanac-content");
+
+
 
 // initialy set the image to an empty potion:
 potionResultImage.src = basePotionImageUrl("empty");
@@ -26,6 +33,7 @@ potionResultImage.src = basePotionImageUrl("empty");
 export const baseIngredientImageUrl = (ingredient) => {
   return `./public/images/ingredients/${ingredient}-ingredient.webp`;
 };
+createAlmanac();
 
 // Loop through the ingredients and add them to the DOM as buttons:
 Object.keys(ingredients).forEach((ingredient) => {
