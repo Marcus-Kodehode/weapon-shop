@@ -1,0 +1,10 @@
+.result-area {
+  display: grid;
+  justify-content: center;
+  gap: 16px;
+}
+
+.result-area img {
+  height: 200px;
+  border-radius: 999px;
+}

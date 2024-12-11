@@ -1,0 +1,9 @@
+@import url("./ingredients-area.css");
+@import url("./brew-buttons.css");
+@import url("./result-area.css");
+
+.brew-area {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

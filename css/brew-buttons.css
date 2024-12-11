@@ -1,0 +1,19 @@
+.brew-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.brew-buttons button {
+  width: 100%;
+  padding: 16px 0;
+}
+
+.brew-buttons button#brew {
+  background-color: rgb(113, 113, 238);
+  flex: 3;
+}
+
+.brew-buttons button#reset {
+  background-color: rgb(238, 113, 130);
+  flex: 1;
+}

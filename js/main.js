@@ -1,11 +1,5 @@
-// const addHerbs = document.getElementById("addHerbs");
-// const addBerries = document.getElementById("addBerries");
-// const addMushrooms = document.getElementById("addMushrooms");
-// const addWater = document.getElementById("addWater");
-// const addFlowers = document.getElementById("addFlowers");
-
 import { checkIfIngredientsMatchPotion, getPotion } from "./compare.js";
-import { imagesToPreload } from "./imagesLoad.js";
+import { potionImagesToPreload } from "./imagesLoad.js";
 import {
   decreaseAmount,
   increaseAmount,
@@ -16,7 +10,7 @@ import { basePotionImageUrl, potions } from "./potions.js";
 
 // Load in all dynamic images so they are included in the build:
 document.addEventListener("DOMContentLoaded", () => {
-  imagesToPreload();
+  potionImagesToPreload();
 });
 
 // Get all the DOM elements needed:
