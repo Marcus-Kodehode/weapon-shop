@@ -12,7 +12,7 @@ import {
   ingredients,
   resetIngredients,
 } from "./ingredients.js";
-import { baseImageUrl, potions } from "./potions.js";
+import { basePotionImageUrl, potions } from "./potions.js";
 
 // Load in all dynamic images so they are included in the build:
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,21 +20,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Get all the DOM elements needed:
-const ingredientsButtons = document.getElementById("ingredients");
+const ingredientArea = document.getElementById("ingredients");
 const brew = document.getElementById("brew");
 const reset = document.getElementById("reset");
 const potionResultText = document.getElementById("potionResultText");
 const potionResultImage = document.getElementById("potionResultImage");
 
 // initialy set the image to an empty potion:
-potionResultImage.src = baseImageUrl("empty");
+potionResultImage.src = basePotionImageUrl("empty");
+
+export const baseIngredientImageUrl = (ingredient) => {
+  return `./public/images/ingredients/${ingredient}-ingredient.webp`;
+};
 
 // Loop through the ingredients and add them to the DOM as buttons:
 Object.keys(ingredients).forEach((ingredient) => {
-  ingredientsButtons.insertAdjacentHTML(
+  console.log("ingredientName", ingredients[ingredient].ingredientName);
+  ingredientArea.insertAdjacentHTML(
     "beforeend",
     `
-  <div class="ingredient">
+  <div class="ingredient-wrapper" id="${ingredients[ingredient].ingredientName}-ingredient">
     <p>
     ${ingredients[ingredient].ingredientName}
     </p>
@@ -42,14 +47,21 @@ Object.keys(ingredients).forEach((ingredient) => {
       <button class="add-button" id="${ingredients[ingredient].id}-add">
       +
       </button>
+      <p id="${ingredients[ingredient].id}-amount" class="ingredient-amount">${ingredients[ingredient].amount}</p>
       <button class="subtract-button" id="${ingredients[ingredient].id}-subtract">
       -
       </button>
   </div>
-    <p id="${ingredients[ingredient].id}-amount" class="ingredient-amount">${ingredients[ingredient].amount}</p>
+    
   </div>
   `
   );
+
+  const ingredientElement = document.getElementById(
+    `${ingredients[ingredient].ingredientName}-ingredient`
+  );
+
+  ingredientElement.style.backgroundImage = `url("./public/images/ingredients/${ingredients[ingredient].ingredientName}-ingredient.webp")`;
 
   const addButton = document.getElementById(
     `${ingredients[ingredient].id}-add`
@@ -95,5 +107,5 @@ console.log(getPotion("healingPotion"));
 reset.addEventListener("click", () => {
   resetIngredients();
   potionResultText.textContent = "Results of your brew:";
-  potionResultImage.src = baseImageUrl("empty");
+  potionResultImage.src = basePotionImageUrl("empty");
 });

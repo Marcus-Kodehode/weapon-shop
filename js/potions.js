@@ -1,5 +1,5 @@
 // Function that can be called to get the potion image url
-export const baseImageUrl = (potion) => {
+export const basePotionImageUrl = (potion) => {
   return `./public/images/potions/${potion}-potion.webp`;
 };
 
@@ -11,7 +11,7 @@ export const potions = {
     water: 0,
     mushrooms: 1,
     flowers: 0,
-    image: baseImageUrl("healing"),
+    image: basePotionImageUrl("healing"),
     name: "Healing Potion",
   },
   strengthPotion: {
@@ -20,7 +20,7 @@ export const potions = {
     mushrooms: 1,
     water: 0,
     flowers: 1,
-    image: baseImageUrl("strength"),
+    image: basePotionImageUrl("strength"),
     name: "Strength Potion",
   },
   manaPotion: {
@@ -30,7 +30,7 @@ export const potions = {
     mushrooms: 0,
     flowers: 1,
     name: "Mana Potion",
-    image: baseImageUrl("mana"),
+    image: basePotionImageUrl("mana"),
   },
   speedPotion: {
     herbs: 0,
@@ -39,7 +39,7 @@ export const potions = {
     mushrooms: 2,
     flowers: 1,
     name: "Speed Potion",
-    image: baseImageUrl("speed"),
+    image: basePotionImageUrl("speed"),
   },
   stealthPotion: {
     herbs: 1,
@@ -48,7 +48,7 @@ export const potions = {
     mushrooms: 1,
     flowers: 0,
     name: "Stealth Potion",
-    image: baseImageUrl("stealth"),
+    image: basePotionImageUrl("stealth"),
   },
   antidote: {
     herbs: 2,
@@ -57,7 +57,7 @@ export const potions = {
     mushrooms: 0,
     flowers: 0,
     name: "Antidote",
-    image: baseImageUrl("antidote"),
+    image: basePotionImageUrl("antidote"),
   },
   lovePotion: {
     herbs: 1,
@@ -66,7 +66,7 @@ export const potions = {
     mushrooms: 0,
     flowers: 2,
     name: "Love Potion",
-    image: baseImageUrl("love"),
+    image: basePotionImageUrl("love"),
   },
   nightVisionPotion: {
     herbs: 1,
@@ -75,7 +75,7 @@ export const potions = {
     mushrooms: 2,
     flowers: 1,
     name: "Night Vision Potion",
-    image: baseImageUrl("nightvision"),
+    image: basePotionImageUrl("nightvision"),
   },
   fireResistancePotion: {
     herbs: 2,
@@ -84,7 +84,7 @@ export const potions = {
     mushrooms: 1,
     flowers: 1,
     name: "Fire Resistance Potion",
-    image: baseImageUrl("fire-resistance"),
+    image: basePotionImageUrl("fire-resistance"),
   },
   frostResistancePotion: {
     herbs: 0,
@@ -93,7 +93,7 @@ export const potions = {
     mushrooms: 1,
     flowers: 1,
     name: "Frost Resistance Potion",
-    image: baseImageUrl("frost-resistance"),
+    image: basePotionImageUrl("frost-resistance"),
   },
   lightningResistancePotion: {
     herbs: 1,
@@ -102,7 +102,7 @@ export const potions = {
     mushrooms: 2,
     flowers: 0,
     name: "Lightning Resistance Potion",
-    image: baseImageUrl("lightning-resistance"),
+    image: basePotionImageUrl("lightning-resistance"),
   },
   energyPotion: {
     herbs: 1,
@@ -111,7 +111,7 @@ export const potions = {
     mushrooms: 0,
     flowers: 0,
     name: "Energy Potion",
-    image: baseImageUrl("energy"),
+    image: basePotionImageUrl("energy"),
   },
   focusPotion: {
     herbs: 2,
@@ -120,6 +120,6 @@ export const potions = {
     mushrooms: 0,
     flowers: 2,
     name: "Focus Potion",
-    image: baseImageUrl("focus"),
+    image: basePotionImageUrl("focus"),
   },
 };
