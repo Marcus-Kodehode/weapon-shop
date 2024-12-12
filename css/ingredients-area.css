@@ -21,6 +21,7 @@
 
 .ingredient-wrapper > p {
   padding: 6px;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
   background-color: rgba(128, 128, 128, 0.7);
   border-radius: 4px;
 }

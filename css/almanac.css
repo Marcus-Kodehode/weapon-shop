@@ -1,0 +1,94 @@
+#almanac-button {
+ box-shadow: 0px 0px 16px 2px #d4c81e;
+    transform: translateX(20%);
+    background-color: #9c9318;
+    transition: 1s ease-in-out;
+    transition-property: background-color, transform, width, box-shadow;
+    }
+
+#almanac-button.open {
+/* width: fit-content; */
+background-color: #5f5a12;
+transform: translateX(-20%);
+box-shadow: 0px 0px 4px 1px #d4c81e;
+}
+
+#almanac {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 16px;
+    z-index: 99;
+}
+
+#almanac .almanac-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color: burlywood;
+    transition: 0.5s ease-in-out;
+    transition-property: transform;
+    transform: translateX(100%);
+    z-index: -10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 88px 24px;
+    gap: 64px;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+#almanac .almanac-content.show {
+    transform: translateX(0);
+}
+
+#almanac .almanac-content .almanac-potion {
+    position: relative;
+    height: 280px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px rgb(100, 77, 46);
+    padding: 16px;
+    background-color: rgb(158, 122, 75);
+}
+
+#almanac .almanac-content .almanac-potion > p {
+    position: absolute;
+    top: -10%;
+    padding: 8px;
+    width: 220px;
+    background-color: rgb(100, 77, 46);
+}
+
+#almanac .almanac-content .almanac-potion img.almanac-potion-image {
+    height: 100px;
+    border-radius: 999px;
+}
+
+#almanac .almanac-content .almanac-potion img.almanac-ingredient-image {
+    height: 25px;
+    border-radius: 999px;
+    transition: scale 0.1s ease-in-out;
+}
+
+#almanac .almanac-content .almanac-potion img.almanac-ingredient-image:hover {
+    scale: 300%;
+}
+
+#almanac .almanac-content .almanac-potion .almanac-ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    gap: 24px;
+    justify-content: center;
+}
+
+#almanac .almanac-content .almanac-potion .almanac-ingredients .almanac-ingredient {
+}
