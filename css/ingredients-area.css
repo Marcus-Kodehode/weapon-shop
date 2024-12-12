@@ -13,7 +13,7 @@
   gap: 16px;
   background-position: center;
   background-size: cover;
-  padding: 8px;
+  /* padding: 8px; */
   height: 180px;
   width: 180px;
   border-radius: 4px;
@@ -28,37 +28,62 @@
 
 .ingredient-wrapper > p {
   padding: 6px;
-  text-shadow: 1px 1px 2px rgb(0, 0, 0);
-  background-color: rgba(128, 128, 128, 0.7);
+  background-color: var(--obsidian-black-translucent);
   border-radius: 4px;
+  width: 100%;
+  font-weight: bolder;
+  
 }
 
 .ingredients-buttons {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  justify-content: space-around;
+  /* padding: 4px; */
   align-items: center;
-  gap: 8px;
-  /* width: 96px; */
+  /* gap: 8px; */
+  background-color: var(--obsidian-black-translucent);
+  border: 4px solid var(--lunar-pearl-translucent);
 }
 
 .ingredients-buttons button {
   opacity: 70%;
+  transition: 0.1s ease-in-out;
+  font-weight: bolder;
+  font-size: 22px;
 }
 
 .ingredients-buttons > p {
   padding: 6px;
-  background-color: rgba(128, 128, 128, 0.7);
-  border-radius: 4px;
+  width: 33%;
+  border-left: 4px solid var(--lunar-pearl-translucent);
+  border-right: 4px solid var(--lunar-pearl-translucent);
+  font-weight: bolder;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order:2;
 }
 
 .ingredients-buttons .add-button {
-  background-color: rgb(0, 128, 0);
+  order: 1;
+  background-color: transparent;
 }
 
 .ingredients-buttons .subtract-button {
-  background-color: rgb(165, 42, 42);
+  order:3;
+  background-color: transparent;
 }
 
 .ingredients-buttons button:hover {
   opacity: 100%;
 }
+
+.ingredients-buttons button:active {
+ scale: 0.9;
+}
+
+/* .ingredients-buttons button:active ~ .ingredient-amount{
+  scale: 1.1;
+ } */

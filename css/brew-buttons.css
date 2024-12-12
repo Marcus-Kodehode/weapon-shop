@@ -9,11 +9,11 @@
 }
 
 .brew-buttons button#brew {
-  background-color: rgb(113, 113, 238);
+  background-color: var(--celestial-blue);
   flex: 3;
 }
 
 .brew-buttons button#reset {
-  background-color: rgb(238, 113, 130);
+  background-color: var(--crimson-flame);
   flex: 1;
 }

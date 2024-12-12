@@ -23,6 +23,7 @@ export const potionResultImage = document.getElementById("potionResultImage");
 export const almanac = document.getElementById("almanac");
 export const almanacButton = document.getElementById("almanac-button");
 export const almanacContent = document.getElementById("almanac-content");
+export const made = document.getElementById("made");
 
 // initialy set the image to an empty potion:
 potionResultImage.src = basePotionImageUrl("empty");
@@ -49,10 +50,10 @@ Object.keys(ingredients).forEach((ingredient) => {
       <button class="add-button" id="${ingredients[ingredient].id}-add">
       +
       </button>
-      <p id="${ingredients[ingredient].id}-amount" class="ingredient-amount">${ingredients[ingredient].amount}</p>
       <button class="subtract-button" id="${ingredients[ingredient].id}-subtract">
       -
       </button>
+      <p id="${ingredients[ingredient].id}-amount" class="ingredient-amount">${ingredients[ingredient].amount}</p>
   </div>
     
   </div>

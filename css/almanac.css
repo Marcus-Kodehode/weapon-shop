@@ -1,16 +1,19 @@
 #almanac-button {
-  box-shadow: 0px 0px 16px 2px #d4c81e;
+  box-shadow: 0px 0px 16px 2px var(--enchanted-gold);
   transform: translateX(20%);
-  background-color: #9c9318;
+  background-color: var(--mystical-violet);
   transition: 1s ease-in-out;
-  transition-property: background-color, transform, width, box-shadow;
+  font-weight: bolder;
+}
+
+#almanac-button:hover {
 }
 
 #almanac-button.open {
-  /* width: fit-content; */
-  background-color: #5f5a12;
+  background-color: var(--celestial-blue);
+  /* color: var(--obsidian-black); */
   transform: translateX(-20%);
-  box-shadow: 0px 0px 4px 1px #d4c81e;
+  box-shadow: 0px 0px 4px 1px var(--enchanted-gold);
 }
 
 #almanac {
@@ -28,7 +31,9 @@
   overflow: hidden;
   height: 100vh;
   width: 100vw;
-  background-color: burlywood;
+  /* background-image: url("../public/images/background/almanac.webp"); */
+  background-color: var(--lunar-pearl);
+  background-size: cover;
   transition: 0.5s ease-in-out;
   transition-property: transform;
   transform: translateX(100%);
@@ -37,16 +42,30 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 88px 24px;
-  gap: 64px;
+  gap: 32px;
   justify-content: center;
   overflow-y: scroll;
+}
+
+div.almanac-background {
+  position: absolute;
+  background-image: url("../public/images/background/almanac.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 45%;
+  height: 100%;
+  width: 100%;
+  z-index: -10;
+  top: 0;
+  left: 0;
 }
 
 #almanac .almanac-content.show {
   transform: translateX(0);
 }
 
-#almanac .almanac-content .almanac-potion {
+.almanac-content .almanac-potion {
   position: relative;
   height: 280px;
   width: 200px;
@@ -54,19 +73,94 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid 2px rgb(100, 77, 46);
-  padding: 16px;
-  background-color: rgb(158, 122, 75);
-  /* transform: perspective(500px) rotate3d(0, 10, 0, 180deg); */
-  /* transform: rotate3d(1, 1, 1, 45deg); */
+  perspective: 1000px;
+  background-color: var(--obsidian-black);
+ 
+  /* border-radius: 24px; */
 }
 
-#almanac .almanac-content .almanac-potion > p {
+.almanac-content .almanac-potion .almanac-potion-backface .made {
+  display: none;
+  position: absolute;
+  border-radius: 999px;
+  background-color: var(--forest-emerald);
+  top: -12px;
+  right: -12px;
+  margin: 16px;
+  padding: 16px 20px;
+}
+
+.almanac-potion .almanac-potion-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+  transform: rotateY(180deg);
+}
+
+.almanac-potion:hover .almanac-potion-inner {
+  transform: rotateY(0deg);
+}
+
+.almanac-potion-front,
+.almanac-potion-backface {
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 16px;
+  align-items: center;
+  border: solid 2px rgb(100, 77, 46);
+}
+
+.almanac-potion-front {
+  /* background-color: var(--obsidian-black); */
+  /* background-image: url("../public/images/background/potion-recipe.webp"); */
+  background-position: center;
+  /* background-blend-mode: soft-light; */
+  box-shadow: 0px 0px 8px 8px var(--mystical-violet);
+  padding: 16px;
+}
+
+.almanac-potion-front .almanac-potion-background {
+  position: absolute;
+  background-image: url("../public/images/background/potion-recipe.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 45%;
+  height: 100%;
+  width: 100%;
+  z-index: -10;
+  top: 0;
+  left: 0;
+}
+
+.almanac-potion-backface {
+  background-color: var(--enchanted-wood);
+  box-shadow: 0px 0px 8px 8px var(--mystical-violet);
+  transform: rotateY(180deg);
+}
+
+.almanac-potion-backface img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.almanac-potion .almanac-potion-front > p {
   position: absolute;
   top: -10%;
   padding: 8px;
   width: 220px;
-  background-color: rgb(100, 77, 46);
+  box-shadow: 0px 0px 4px 4px var(--mystical-violet);
+  /* background-color: var(--enchanted-wood); */
+  background-image: url("../public/images/background/potion-recipe.webp");
 }
 
 .almanac-potion img.almanac-potion-image {
@@ -74,26 +168,31 @@
   border-radius: 999px;
 }
 
-.almanac-potion img.almanac-ingredient-image {
-  height: 25px;
-  border-radius: 999px;
-  transition: scale 0.1s ease-in-out;
-}
-
-.almanac-potion img.almanac-ingredient-image:hover {
-  scale: 300%;
-}
-
 .almanac-potion .almanac-ingredients {
   display: flex;
   flex-wrap: wrap;
-  padding: 8px;
-  gap: 24px;
+  /* padding: 16px; */
+  gap: 12px;
   justify-content: center;
 }
 
-.almanac-ingredients .almanac-ingredient {
+.almanac-potion .almanac-ingredients .almanac-ingredient {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
 }
+
+.almanac-potion .almanac-ingredients .almanac-ingredient > p {
+  user-select: none;
+}
+
+.almanac-potion img.almanac-ingredient-image {
+  height: 40px;
+  border-radius: 999px;
+}
+
+
 
 ::-webkit-scrollbar {
   width: 10px;
