@@ -1,6 +1,7 @@
 import { potions } from "./potions.js";
 
 // Load in all dynamic images so they are included in the build:
+// Needed because images here are not loaded initially in the build (shown through javascript)
 export const potionImagesToPreload = () => {
   for (const potion in potions) {
     const img = new Image();
@@ -10,5 +11,3 @@ export const potionImagesToPreload = () => {
     img.style.display = "none";
   }
 };
-
-export const ingredientImagesToPreload = () => {};
