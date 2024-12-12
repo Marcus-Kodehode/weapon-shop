@@ -1,6 +1,6 @@
 .brew-buttons {
   display: flex;
-  gap: 8px;
+  gap: 32px;
 }
 
 .brew-buttons button {

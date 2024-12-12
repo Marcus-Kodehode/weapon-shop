@@ -5,7 +5,7 @@
   justify-content: center;
 }
 
-.ingredients div.ingredient-wrapper {
+.ingredients .ingredient-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,6 +19,13 @@
   border-radius: 4px;
 }
 
+@media screen and (max-width: 1024px) {
+  .ingredients .ingredient-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 .ingredient-wrapper > p {
   padding: 6px;
   text-shadow: 1px 1px 2px rgb(0, 0, 0);
@@ -26,7 +33,7 @@
   border-radius: 4px;
 }
 
-.ingredient-wrapper .ingredients-buttons {
+.ingredients-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,11 +41,11 @@
   /* width: 96px; */
 }
 
-.ingredient-wrapper .ingredients-buttons button {
+.ingredients-buttons button {
   opacity: 70%;
 }
 
-.ingredient-wrapper .ingredients-buttons > p {
+.ingredients-buttons > p {
   padding: 6px;
   background-color: rgba(128, 128, 128, 0.7);
   border-radius: 4px;

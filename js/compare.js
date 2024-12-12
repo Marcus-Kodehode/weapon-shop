@@ -1,13 +1,7 @@
 import { checkAllIngredientsAmount } from "./ingredients.js";
-import { checkPotionIngredients, getPotion, potions } from "./potions.js";
+import { getPotion, potions } from "./potions.js";
 
-export let currentPotion;
-
-export default function checkAllIngredientsAmount() {
-  return Object.keys(ingredients).map(
-    (ingredient) => ingredients[ingredient].amount
-  );
-}
+// export let currentPotion;
 
 export function getPotionIngredients(potion) {
   return Object.entries(potions[potion])
@@ -18,11 +12,6 @@ export function getPotionIngredients(potion) {
 export function getPotionIngredient(potion, ingredient) {
   return potions[potion][ingredient];
 }
-
-export function getPotion(potion) {
-  return potions[potion];
-}
-
 
 // Function that can be called to check if the current ingredients match a potion
 export function checkIfIngredientsMatchPotion(potionName) {

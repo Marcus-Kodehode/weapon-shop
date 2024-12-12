@@ -1,6 +1,5 @@
 import { createAlmanac } from "./almanac.js";
-import { checkIfIngredientsMatchPotion, getPotion } from "./compare.js";
-
+import { checkIfIngredientsMatchPotion } from "./compare.js";
 import { potionImagesToPreload } from "./imagesLoad.js";
 import {
   decreaseAmount,
@@ -24,8 +23,6 @@ export const potionResultImage = document.getElementById("potionResultImage");
 export const almanac = document.getElementById("almanac");
 export const almanacButton = document.getElementById("almanac-button");
 export const almanacContent = document.getElementById("almanac-content");
-
-
 
 // initialy set the image to an empty potion:
 potionResultImage.src = basePotionImageUrl("empty");
