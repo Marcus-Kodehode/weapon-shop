@@ -9,6 +9,7 @@
 
 body {
   display: flex;
+  padding-inline: 32px;
   flex-direction: column;
   gap: 48px;
   justify-content: center;

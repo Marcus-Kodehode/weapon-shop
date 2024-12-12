@@ -1,5 +1,5 @@
-import { ingredients } from "./ingredients.js";
-import { potions } from "./potions.js";
+import { checkAllIngredientsAmount } from "./ingredients.js";
+import { checkPotionIngredients, getPotion, potions } from "./potions.js";
 
 export let currentPotion;
 
@@ -23,11 +23,13 @@ export function getPotion(potion) {
   return potions[potion];
 }
 
+
+// Function that can be called to check if the current ingredients match a potion
 export function checkIfIngredientsMatchPotion(potionName) {
   const currentIngredients = checkAllIngredientsAmount().toString();
   const potionIngredients = getPotionIngredients(potionName).toString();
   if (currentIngredients === potionIngredients) {
-    return (currentPotion = potions[potionName]);
+    return getPotion(potionName);
   }
   return false;
 }

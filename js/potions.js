@@ -3,6 +3,18 @@ export const basePotionImageUrl = (potion) => {
   return `./public/images/potions/${potion}-potion.webp`;
 };
 
+// Function that can be called to get the potion object
+export function getPotion(potion) {
+  return potions[potion];
+}
+
+// Function that can be called to check the ingredients for a potion:
+export function checkPotionIngredients(potion) {
+  return Object.entries(potions[potion])
+    .filter(([key]) => key !== "image" && key !== "name")
+    .map(([, value]) => value);
+}
+
 // All potions, created as objects (for easier reference)
 export const potions = {
   healingPotion: {
@@ -11,7 +23,7 @@ export const potions = {
     water: 0,
     mushrooms: 1,
     flowers: 0,
-    image: basePotionImageUrl("healing"),
+    image: basePotionImageUrl("healing"), // returns: ./public/images/potions/healing-potion.webp
     name: "Healing Potion",
   },
   strengthPotion: {
