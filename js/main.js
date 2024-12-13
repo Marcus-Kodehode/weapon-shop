@@ -25,6 +25,12 @@ export const almanacButton = document.getElementById("almanac-button");
 export const almanacContent = document.getElementById("almanac-content");
 export const made = document.getElementById("made");
 
+export const potionSuccessSound = new Audio(
+  "./public/sounds/potion-success.mp3"
+);
+
+export const potionFailSound = new Audio("./public/sounds/potion-failed.mp3");
+
 // initialy set the image to an empty potion:
 potionResultImage.src = basePotionImageUrl("empty");
 
@@ -95,6 +101,8 @@ Object.keys(ingredients).forEach((ingredient) => {
 
 // Add an event listener to the "brew" button to check if the current ingredients match a potion
 brew.addEventListener("click", () => {
+  potionResultText.textContent = "Brew a potion:"; // Reset the result text to the default message
+  potionResultImage.src = basePotionImageUrl("empty"); // Set the result image to an empty potion image
   let matchingPotion;
   let matchingPotionName;
   // Iterate through all potion names to check if the current ingredients match any potion
@@ -107,8 +115,11 @@ brew.addEventListener("click", () => {
 
   // If a matching potion is found, update the result text and image
   if (matchingPotion) {
+    potionSuccessSound.play();
     potionResultText.textContent = getPotion(matchingPotionName).name; // Set the potion name in the result text
     potionResultImage.src = getPotion(matchingPotionName).image; // Set the corresponding image for the potion
+  } else {
+    potionFailSound.play();
   }
 
   // Reset the ingredient amounts after brewing
