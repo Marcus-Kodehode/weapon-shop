@@ -32,7 +32,6 @@
   border-radius: 4px;
   width: 100%;
   font-weight: bolder;
-  
 }
 
 .ingredients-buttons {
@@ -63,7 +62,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  order:2;
+  order: 2;
 }
 
 .ingredients-buttons .add-button {
@@ -72,7 +71,7 @@
 }
 
 .ingredients-buttons .subtract-button {
-  order:3;
+  order: 3;
   background-color: transparent;
 }
 
@@ -81,7 +80,7 @@
 }
 
 .ingredients-buttons button:active {
- scale: 0.9;
+  scale: 0.9;
 }
 
 /* .ingredients-buttons button:active ~ .ingredient-amount{

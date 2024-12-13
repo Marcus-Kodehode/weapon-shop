@@ -1,19 +1,31 @@
 .brew-buttons {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 32px;
 }
 
 .brew-buttons button {
-  width: 100%;
-  padding: 16px 0;
+  width: 120px;
+  height: 120px;
+  font-size: 24px;
 }
 
 .brew-buttons button#brew {
   background-color: var(--celestial-blue);
-  flex: 3;
 }
 
 .brew-buttons button#reset {
   background-color: var(--crimson-flame);
-  flex: 1;
+}
+
+.result-area {
+  display: grid;
+  justify-content: center;
+  gap: 16px;
+}
+
+.result-area img {
+  height: 200px;
+  border-radius: 999px;
 }
