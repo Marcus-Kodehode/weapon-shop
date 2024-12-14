@@ -118,6 +118,7 @@ brew.addEventListener("click", () => {
     potionSuccessSound.play();
     potionResultText.textContent = getPotion(matchingPotionName).name; // Set the potion name in the result text
     potionResultImage.src = getPotion(matchingPotionName).image; // Set the corresponding image for the potion
+    document.getElementById(`${matchingPotionName}-made`).style.display = "block";
   } else {
     potionFailSound.play();
   }

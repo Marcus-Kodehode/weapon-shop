@@ -44,7 +44,7 @@ export function createAlmanac() {
             
         
             <div class="almanac-potion-backface">
-                  <p id="made" class="made">V</p>
+                  <p id="${potion}-made" class="made">V</p>
                   <img class="" src="${potions[potion].image}" alt="${potions[potion].name}" />
             </div>
           </div>

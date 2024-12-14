@@ -30,8 +30,8 @@ export const potions = {
   strengthPotion: {
     herbs: 0,
     berries: 1,
-    mushrooms: 2,
     water: 1,
+    mushrooms: 2,
     flowers: 0,
     crystals: 2,
     image: basePotionImageUrl("strength"),
