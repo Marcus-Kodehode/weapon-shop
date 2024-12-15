@@ -1,5 +1,6 @@
 @import url("./brew-area.css");
-@import url("./almanac.css");
+@import url("./books.css");
+
 
 * {
   margin: 0;
@@ -74,3 +75,18 @@ button:hover {
 }
 
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9b8d2c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8a7a13;
+}

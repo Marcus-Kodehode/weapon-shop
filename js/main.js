@@ -1,5 +1,6 @@
 import { createAlmanac } from "./almanac.js";
 import { checkIfIngredientsMatchPotion } from "./compare.js";
+import { createCompendium } from "./compendium.js";
 import { potionImagesToPreload } from "./imagesLoad.js";
 import {
   decreaseAmount,
@@ -20,9 +21,15 @@ export const brew = document.getElementById("brew");
 export const reset = document.getElementById("reset");
 export const potionResultText = document.getElementById("potionResultText");
 export const potionResultImage = document.getElementById("potionResultImage");
+
 export const almanac = document.getElementById("almanac");
 export const almanacButton = document.getElementById("almanac-button");
 export const almanacContent = document.getElementById("almanac-content");
+
+export const compendium = document.getElementById("compendium");
+export const compendiumButton = document.getElementById("compendium-button");
+export const compendiumContent = document.getElementById("compendium-content");
+
 export const made = document.getElementById("made");
 
 export const potionSuccessSound = new Audio(
@@ -38,7 +45,9 @@ potionResultImage.src = basePotionImageUrl("empty");
 export const baseIngredientImageUrl = (ingredient) => {
   return `./public/images/ingredients/${ingredient}-ingredient.webp`;
 };
+
 createAlmanac();
+createCompendium();
 
 // Loop through the ingredients and add them to the DOM as HTML:
 

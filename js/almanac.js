@@ -12,7 +12,7 @@ export function createAlmanac() {
         almanacContent.classList.toggle("show");
         almanacButton.classList.toggle("open");
         if (almanacButton.classList.contains("open")) {
-            almanacButton.textContent = "Brewing area";
+            almanacButton.textContent = "Close Almanac";
         } else {
             almanacButton.textContent = "Open Almanac";
         }

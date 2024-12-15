@@ -1,9 +1,14 @@
 #almanac-button {
+  position: absolute;
+  width: 150px;
+  top: 16px;
+  right: 0;
   box-shadow: 0px 0px 16px 2px var(--enchanted-gold);
-  transform: translateX(20%);
+  transform: translate(10%);
   background-color: var(--mystical-violet);
   transition: 1s ease-in-out;
   font-weight: bolder;
+  z-index: 20;
 }
 
 #almanac-button:hover {
@@ -14,6 +19,7 @@
   /* color: var(--obsidian-black); */
   transform: translateX(-20%);
   box-shadow: 0px 0px 4px 1px var(--enchanted-gold);
+  z-index: 20;
 }
 
 #almanac {
@@ -21,7 +27,7 @@
   top: 0;
   right: 0;
   padding: 16px;
-  z-index: 99;
+  /* z-index: 11; */
 }
 
 #almanac .almanac-content {
@@ -194,22 +200,4 @@ div.almanac-background {
 .almanac-potion img.almanac-ingredient-image {
   height: 40px;
   border-radius: 999px;
-}
-
-
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: none;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #9b8d2c;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #8a7a13;
 }
