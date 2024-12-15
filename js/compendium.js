@@ -1,29 +1,34 @@
 // monster compendium
 
-import { getMonsterIngredient, getPotionIngredient, getPotionIngredients } from "./compare.js";
+import { getMonsterIngredient } from "./compare.js";
 import { ingredients } from "./ingredients.js";
 import {
-    compendiumButton,
-    compendiumContent,
-    baseIngredientImageUrl,
+  compendiumButton,
+  compendiumContent,
+  baseIngredientImageUrl,
+  almanacContent,
+  almanacButton,
 } from "./main.js";
 import { monsters } from "./monsters.js";
-import { potions } from "./potions.js";
 
 export function createCompendium() {
-    compendiumButton.addEventListener("click", () => {
-        compendiumContent.classList.toggle("show");
-        compendiumButton.classList.toggle("open");
-        if (compendiumButton.classList.contains("open")) {
-            compendiumButton.textContent = "Close Compendium";
-        } else {
-            compendiumButton.textContent = "Open Compendium";
-        }
-    });
-    Object.keys(monsters).forEach((monster) => {
-        compendiumContent.insertAdjacentHTML(
-            "beforeend",
-            `
+  compendiumButton.addEventListener("click", () => {
+    compendiumContent.classList.toggle("show");
+    compendiumButton.classList.toggle("open");
+
+    almanacContent.classList.remove("show");
+    almanacButton.classList.remove("open");
+    almanacButton.textContent = "Open Almanac";
+    if (compendiumButton.classList.contains("open")) {
+      compendiumButton.textContent = "Close Compendium";
+    } else {
+      compendiumButton.textContent = "Open Compendium";
+    }
+  });
+  Object.keys(monsters).forEach((monster) => {
+    compendiumContent.insertAdjacentHTML(
+      "beforeend",
+      `
        <div class="compendium-monster ${monster}">
           <div class="compendium-monster-inner">
             
@@ -33,15 +38,15 @@ export function createCompendium() {
               <img class="compendium-monster-image" src="${monsters[monster].image}" alt="${monsters[monster].name}" />
               <div class="compendium-ingredients">
                 ${Object.keys(ingredients).map((ingredient) => {
-                    return `
+        return `
                     <div class="compendium-ingredient">
                       <p>${getMonsterIngredient(monster, ingredient)}</p>
                       <img class="compendium-ingredient-image" src="${baseIngredientImageUrl(
-                          ingredients[ingredient].ingredientName
-                      )}" alt="${ingredients[ingredient].ingredientName}" />
+          ingredients[ingredient].ingredientName
+        )}" alt="${ingredients[ingredient].ingredientName}" />
                     </div>
                     `;
-                }).join("")}
+      }).join("")}
               </div>
             </div>
             
@@ -53,6 +58,6 @@ export function createCompendium() {
           </div>
         </div>
         `
-        );
-    });
+    );
+  });
 }
