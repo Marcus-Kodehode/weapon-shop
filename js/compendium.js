@@ -34,26 +34,33 @@ export function createCompendium() {
             
             <div class="compendium-monster-front">
             <div class="compendium-monster-background"></div>
-              <p>${monsters[monster].name}</p>
-              <img class="compendium-monster-image" src="${monsters[monster].image}" alt="${monsters[monster].name}" />
+              <p class="compendium-monster-name">${monsters[monster].name}</p>
+              <img class="compendium-monster-image" src="${
+                monsters[monster].image
+              }" alt="${monsters[monster].name}" />
+              <p class="compendium-monster-drops">Loot:</p>
               <div class="compendium-ingredients">
-                ${Object.keys(ingredients).map((ingredient) => {
-        return `
+                ${Object.keys(ingredients)
+                  .map((ingredient) => {
+                    return `
                     <div class="compendium-ingredient">
                       <p>${getMonsterIngredient(monster, ingredient)}</p>
                       <img class="compendium-ingredient-image" src="${baseIngredientImageUrl(
-          ingredients[ingredient].ingredientName
-        )}" alt="${ingredients[ingredient].ingredientName}" />
+                        ingredients[ingredient].ingredientName
+                      )}" alt="${ingredients[ingredient].ingredientName}" />
                     </div>
                     `;
-      }).join("")}
+                  })
+                  .join("")}
               </div>
             </div>
             
         
             <div class="compendium-monster-backface">
                   <p id="${monster}-made" class="made">V</p>
-                  <img class="" src="${monsters[monster].image}" alt="${monsters[monster].name}" />
+                  <img class="" src="${monsters[monster].image}" alt="${
+        monsters[monster].name
+      }" />
             </div>
           </div>
         </div>
