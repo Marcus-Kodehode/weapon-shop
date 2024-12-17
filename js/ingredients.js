@@ -13,6 +13,9 @@ export default function ingredientAmount(ingredient) {
   return ingredients[ingredient].amount;
 }
 
+// console.log(ingredientAmount("herbs")) // 0
+// console.log(ingredientAmount("crystals ")) // 0
+
 // Function that can be called to get the amount for all ingredients
 export function checkAllIngredientsAmount() {
   return Object.keys(ingredients).map(

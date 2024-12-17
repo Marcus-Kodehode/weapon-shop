@@ -81,6 +81,7 @@ Object.keys(ingredients).forEach((ingredient) => {
   );
 
   // set the background image:
+  //TODO use the shortening function for the url:
   ingredientElement.style.backgroundImage = `url("./public/images/ingredients/${ingredients[ingredient].ingredientName}-ingredient.webp")`;
 
   // get the add button and giving it an event listener (for increasing the amount of ingredients):
@@ -127,7 +128,8 @@ brew.addEventListener("click", () => {
     potionSuccessSound.play();
     potionResultText.textContent = getPotion(matchingPotionName).name; // Set the potion name in the result text
     potionResultImage.src = getPotion(matchingPotionName).image; // Set the corresponding image for the potion
-    document.getElementById(`${matchingPotionName}-made`).style.display = "block";
+    document.getElementById(`${matchingPotionName}-made`).style.display =
+      "block";
   } else {
     potionFailSound.play();
   }

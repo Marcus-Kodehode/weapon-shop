@@ -4,6 +4,7 @@ import { getPotion, potions } from "./potions.js";
 
 // export let currentPotion;
 
+//TODO: This function is already made in potion.js. Figure out which to remove
 export function getPotionIngredients(potion) {
   return Object.entries(potions[potion])
     .filter(([key]) => key !== "image" && key !== "name")
