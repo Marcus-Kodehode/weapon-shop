@@ -124,14 +124,10 @@ div.compendium-background {
   justify-content: end;
   gap: 16px;
   align-items: center;
-  /* border: solid 2px var(--obsidian-black); */
 }
 
 .compendium-monster-front {
-  /* background-color: var(--obsidian-black); */
-  /* background-image: url("../public/images/background/monster-recipe.webp"); */
   background-position: center;
-  /* background-blend-mode: soft-light; */
   box-shadow: 0px 0px 16px 0px var(--mystical-violet);
   padding: 16px;
 }

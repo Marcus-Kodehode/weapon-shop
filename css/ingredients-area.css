@@ -14,9 +14,10 @@
   background-position: center;
   background-size: cover;
   /* padding: 8px; */
-  height: 180px;
-  width: 180px;
+  height: 200px;
+  width: 160px;
   border-radius: 4px;
+  border: 4px solid var(--lunar-pearl-translucent);
 }
 
 @media screen and (max-width: 1024px) {
@@ -29,9 +30,9 @@
 .ingredient-wrapper > p {
   padding: 6px;
   background-color: var(--obsidian-black-translucent);
-  border-radius: 4px;
   width: 100%;
   font-weight: bolder;
+  border-bottom: 4px solid var(--lunar-pearl-translucent);
 }
 
 .ingredients-buttons {
@@ -42,7 +43,7 @@
   align-items: center;
   /* gap: 8px; */
   background-color: var(--obsidian-black-translucent);
-  border: 4px solid var(--lunar-pearl-translucent);
+  border-top: 4px solid var(--lunar-pearl-translucent);
 }
 
 .ingredients-buttons button {
@@ -55,6 +56,7 @@
 .ingredients-buttons > p {
   padding: 6px;
   width: 33%;
+  background-color: var(--obsidian-black);
   border-left: 4px solid var(--lunar-pearl-translucent);
   border-right: 4px solid var(--lunar-pearl-translucent);
   font-weight: bolder;
