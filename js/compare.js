@@ -1,31 +1,41 @@
-import { checkAllIngredientsAmount } from "./ingredients.js";
+import { ingredients } from "./ingredients.js";
 import { monsters } from "./monsters.js";
 import { getWeapon, weapons } from "./weapons.js";
 
-// Function that returns the required materials for a weapon
-export default function getWeaponMaterials(weapon) {
+// Returnerer de nødvendige materialene for et våpen som en array med objekter { material, amount }
+export function getWeaponMaterials(weapon) {
   return Object.entries(weapons[weapon])
     .filter(([key]) => key !== "image" && key !== "name")
     .map(([key, value]) => ({ material: key, amount: value }));
 }
 
-// Function to check if the current ingredients match a weapon recipe
+// Sjekker om de nåværende ingrediensene matcher en våpenoppskrift nøyaktig
 export function checkIfIngredientsMatchWeapon(weaponName) {
-  const currentIngredients = checkAllIngredientsAmount().toString();
-  const weaponMaterials = getWeaponMaterials(weaponName)
-    .map(({ amount }) => amount)
-    .toString();
-  
-  return currentIngredients === weaponMaterials ? getWeapon(weaponName) : false;
+  const weaponMaterials = getWeaponMaterials(weaponName);
+  console.log(`Checking ${weaponName} with requirements:`, weaponMaterials);
+
+  const isMatch = weaponMaterials.every(({ material, amount }) => {
+    if (!ingredients[material]) {
+      console.error(`Ingredient "${material}" does not exist in ingredients.`);
+      return false;
+    }
+    const currentAmount = ingredients[material].amount;
+    console.log(`For ${material}: requires ${amount}, current amount is ${currentAmount}`);
+    return currentAmount === amount;
+  });
+
+  console.log(`Is ${weaponName} a match?`, isMatch);
+  return isMatch ? getWeapon(weaponName) : false;
 }
 
-// Function that returns a specific ingredient dropped by a monster
+// Returnerer et spesifikt ingredienskrav fra et monster
 export function getMonsterIngredient(monster, ingredient) {
   return monsters[monster][ingredient];
 }
 
-// Ensure exports are included
-// export { getWeaponMaterials, checkIfIngredientsMatchWeapon, getMonsterIngredient };
+
+
+
 
 
 

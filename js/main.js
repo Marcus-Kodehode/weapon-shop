@@ -1,4 +1,3 @@
-// main.js
 import { createAlmanac } from "./almanac.js";
 import { checkIfIngredientsMatchWeapon } from "./compare.js";
 import { createCompendium } from "./compendium.js";
@@ -11,12 +10,12 @@ import {
 } from "./ingredients.js";
 import { baseWeaponImageUrl, getWeapon, weapons } from "./weapons.js";
 
-// Load in all dynamic images so they are included in the build:
+// Last inn dynamiske bilder slik at de inkluderes i builden:
 document.addEventListener("DOMContentLoaded", () => {
   weaponImagesToPreload();
 });
 
-// Get all the DOM elements needed:
+// Hent nødvendige DOM-elementer:
 export const ingredientArea = document.getElementById("ingredients");
 export const forge = document.getElementById("forge");
 export const reset = document.getElementById("reset");
@@ -31,18 +30,20 @@ export const compendium = document.getElementById("compendium");
 export const compendiumButton = document.getElementById("compendium-button");
 export const compendiumContent = document.getElementById("compendium-content");
 
+// Eventuelt element for å indikere at et våpen er "laget" – dette opprettes kanskje ikke for våpen:
 export const made = document.getElementById("made");
 
+// Lydfiler for suksess og feil:
 export const weaponSuccessSound = new Audio("./public/sounds/weapon-success.mp3");
 export const weaponFailSound = new Audio("./public/sounds/weapon-failed.mp3");
 
-// Initially set the image to an empty weapon:
-weaponResultImage.src = baseWeaponImageUrl("empty");
+// Sett initialt fallback-bilde (bruk "default"; sørg for at default.png finnes)
+weaponResultImage.src = baseWeaponImageUrl("default");
 
 createAlmanac();
 createCompendium();
 
-// Loop through the ingredients and add them to the DOM as HTML:
+// Legg ingrediensene til i DOM-en:
 Object.keys(ingredients).forEach((ingredient) => {
   ingredientArea.insertAdjacentHTML(
     "beforeend",
@@ -75,16 +76,17 @@ Object.keys(ingredients).forEach((ingredient) => {
   });
 });
 
-// Add an event listener to the "Forge" button to check if the current ingredients match a weapon
+// Lytt til "Forge"-knappen for å sjekke om ingrediensene matcher et våpen
 forge.addEventListener("click", () => {
   weaponResultText.textContent = "Forge a weapon:";
-  weaponResultImage.src = baseWeaponImageUrl("empty");
+  // Sett fallback-bilde først:
+  weaponResultImage.src = baseWeaponImageUrl("default");
 
   let matchingWeapon = null;
   let matchingWeaponName = null;
 
   console.log("Checking ingredients match...");
-  
+
   for (const weaponName in weapons) {
     console.log("Checking weapon match for:", weaponName);
     console.log("Function returns:", checkIfIngredientsMatchWeapon(weaponName));
@@ -99,15 +101,21 @@ forge.addEventListener("click", () => {
   if (matchingWeapon) {
     weaponSuccessSound.play();
     weaponResultText.textContent = getWeapon(matchingWeaponName).name;
-
+    
     if (getWeapon(matchingWeaponName).image) {
       weaponResultImage.src = getWeapon(matchingWeaponName).image;
     } else {
       console.error("No image found for:", matchingWeaponName);
-      weaponResultImage.src = baseWeaponImageUrl("empty");
+      weaponResultImage.src = baseWeaponImageUrl("default");
     }
-
-    document.getElementById(`${matchingWeaponName}-made`).style.display = "block";
+    
+    // Sjekk om elementet finnes før vi prøver å endre det:
+    const madeElement = document.getElementById(`${matchingWeaponName}-made`);
+    if (madeElement) {
+      madeElement.style.display = "block";
+    } else {
+      console.warn(`Element with id "${matchingWeaponName}-made" not found.`);
+    }
   } else {
     console.log("No matching weapon found.");
     weaponFailSound.play();
@@ -116,10 +124,12 @@ forge.addEventListener("click", () => {
   resetIngredients();
 });
 
-// Add an event listener to the "Reset" button to reset the ingredients and UI
+// Lytt til "Reset"-knappen for å tilbakestille ingredienser og UI:
 reset.addEventListener("click", () => {
   resetIngredients();
   weaponResultText.textContent = "Forge a weapon:";
-  weaponResultImage.src = baseWeaponImageUrl("empty");
+  weaponResultImage.src = baseWeaponImageUrl("default");
 });
+
+
 
