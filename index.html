@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Potion Recipe Game</title>
+    <title>Weapon Smithing Game</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,21 +11,21 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/main.css" />
-    <script src="./js/main.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
   </head>
   <body>
-    <h1>Potion Recipe Game</h1>
+    <h1>Weapon Smithing Game</h1>
     <p>
-      Create a healing potion! You need: 2 Herbs, 1 Berry, and 1 Mushroom. There
-      are a lot more potions to discover...
+      Forge a powerful weapon! You need: 2 Iron, 1 Wood, and 1 Gemstone.
+      There are many weapons to discover...
     </p>
     <div class="brew-area">
       <div class="ingredients" id="ingredients"></div>
       <div class="brew-buttons">
-        <button id="brew">Brew</button>
+        <button id="forge">Forge</button>
         <div class="result-area">
-          <p id="potionResultText">Brew a potion:</p>
-          <img id="potionResultImage" src="" alt="" />
+          <p id="weaponResultText">Forge a weapon:</p>
+          <img id="weaponResultImage" src="public/images/WS1.webp" alt="Weapon Image" />
         </div>
         <button id="reset">Reset</button>
       </div>
@@ -50,3 +50,9 @@
     <div class="background"></div>
   </body>
 </html>
+
+
+<!-- Byttet "Potion Recipe Game" → "Weapon Smithing Game".
+Endret beskrivelsen til å passe en smed.
+Byttet "Brew"-knappen til "Forge".
+Oppdatert ID-er: potionResultText → weaponResultText, potionResultImage → weaponResultImage. -->

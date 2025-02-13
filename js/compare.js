@@ -1,30 +1,31 @@
 import { checkAllIngredientsAmount } from "./ingredients.js";
 import { monsters } from "./monsters.js";
-import { getPotion, potions } from "./potions.js";
+import { getWeapon, weapons } from "./weapons.js";
 
-// export let currentPotion;
-
-//TODO: This function is already made in potion.js. Figure out which to remove
-export function getPotionIngredients(potion) {
-  return Object.entries(potions[potion])
+// Function that returns the required materials for a weapon
+export default function getWeaponMaterials(weapon) {
+  return Object.entries(weapons[weapon])
     .filter(([key]) => key !== "image" && key !== "name")
-    .map(([, value]) => value);
+    .map(([key, value]) => ({ material: key, amount: value }));
 }
 
-export function getPotionIngredient(potion, ingredient) {
-  return potions[potion][ingredient];
+// Function to check if the current ingredients match a weapon recipe
+export function checkIfIngredientsMatchWeapon(weaponName) {
+  const currentIngredients = checkAllIngredientsAmount().toString();
+  const weaponMaterials = getWeaponMaterials(weaponName)
+    .map(({ amount }) => amount)
+    .toString();
+  
+  return currentIngredients === weaponMaterials ? getWeapon(weaponName) : false;
 }
 
+// Function that returns a specific ingredient dropped by a monster
 export function getMonsterIngredient(monster, ingredient) {
   return monsters[monster][ingredient];
 }
 
-// Function that can be called to check if the current ingredients match a potion
-export function checkIfIngredientsMatchPotion(potionName) {
-  const currentIngredients = checkAllIngredientsAmount().toString();
-  const potionIngredients = getPotionIngredients(potionName).toString();
-  if (currentIngredients === potionIngredients) {
-    return getPotion(potionName);
-  }
-  return false;
-}
+// Ensure exports are included
+// export { getWeaponMaterials, checkIfIngredientsMatchWeapon, getMonsterIngredient };
+
+
+

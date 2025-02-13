@@ -1,15 +1,17 @@
 // creating an object for the ingredients:
 export const ingredients = {
-  herbs: { ingredientName: "herbs", amount: 0, id: "addHerbs" },
-  berries: { ingredientName: "berries", amount: 0, id: "addBerries" },
+  ironOre: { ingredientName: "ironOre", amount: 0, id: "addIronOre" },
+  wood: { ingredientName: "wood", amount: 0, id: "addWood" },
   water: { ingredientName: "water", amount: 0, id: "addWater" },
-  mushrooms: { ingredientName: "mushrooms", amount: 0, id: "addMushrooms" },
-  flowers: { ingredientName: "flowers", amount: 0, id: "addFlowers" },
+  leatherStraps: { ingredientName: "leatherStraps", amount: 0, id: "addLeatherStraps" },
+  steel: { ingredientName: "steel", amount: 0, id: "addSteel" },
   crystals: { ingredientName: "crystals", amount: 0, id: "addCrystals" },
 };
 
+
 // Function that can be called to get the amount of an ingredient
 export default function ingredientAmount(ingredient) {
+  console.log(ingredient)
   return ingredients[ingredient].amount;
 }
 
@@ -25,6 +27,7 @@ export function checkAllIngredientsAmount() {
 
 // Function that can be called to increase the amount of an ingredient. Preventing amount over 10:
 export function increaseAmount(ingredient) {
+  console.log(ingredients)
   if (ingredients[ingredient].amount >= 10) {
     return ingredients[ingredient].amount;
   } else {

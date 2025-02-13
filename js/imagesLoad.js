@@ -1,12 +1,11 @@
-import { potions } from "./potions.js";
+import { weapons } from "./weapons.js";
 
 // Load in all dynamic images so they are included in the build:
-// Needed because images here are not loaded initially in the build (shown through javascript)
-export const potionImagesToPreload = () => {
-  for (const potion in potions) {
+export const weaponImagesToPreload = () => {
+  for (const weapon in weapons) {
     const img = new Image();
-    img.src = potions[potion].image;
-    console.log(potions[potion].image);
+    img.src = weapons[weapon].image;
+    console.log("Preloading image:", img.src);
     document.body.appendChild(img);
     img.style.display = "none";
   }

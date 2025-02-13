@@ -1,15 +1,14 @@
-// monster compendium
-
+// compendium.js
 import { getMonsterIngredient } from "./compare.js";
 import { ingredients } from "./ingredients.js";
 import {
   compendiumButton,
   compendiumContent,
-  baseIngredientImageUrl,
   almanacContent,
   almanacButton,
 } from "./main.js";
 import { monsters } from "./monsters.js";
+import { baseIngredientImageUrl } from "./constants.js";
 
 export function createCompendium() {
   compendiumButton.addEventListener("click", () => {
@@ -33,11 +32,9 @@ export function createCompendium() {
           <div class="compendium-monster-inner">
             
             <div class="compendium-monster-front">
-            <div class="compendium-monster-background"></div>
+              <div class="compendium-monster-background"></div>
               <p class="compendium-monster-name">${monsters[monster].name}</p>
-              <img class="compendium-monster-image" src="${
-                monsters[monster].image
-              }" alt="${monsters[monster].name}" />
+              <img class="compendium-monster-image" src="${monsters[monster].image}" alt="${monsters[monster].name}" />
               <p class="compendium-monster-drops">Loot:</p>
               <div class="compendium-ingredients">
                 ${Object.keys(ingredients)
@@ -54,13 +51,10 @@ export function createCompendium() {
                   .join("")}
               </div>
             </div>
-            
         
             <div class="compendium-monster-backface">
-                  <p id="${monster}-made" class="made">V</p>
-                  <img class="" src="${monsters[monster].image}" alt="${
-        monsters[monster].name
-      }" />
+              <p id="${monster}-made" class="made">V</p>
+              <img src="${monsters[monster].image}" alt="${monsters[monster].name}" />
             </div>
           </div>
         </div>

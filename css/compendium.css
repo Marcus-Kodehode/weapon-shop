@@ -134,7 +134,7 @@ div.compendium-background {
 
 .compendium-monster-front .compendium-monster-background {
   position: absolute;
-  background-image: url("../public/images/background/potion-recipe.webp");
+  background-image: url("../public/images/background/weapon-recipe.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -165,7 +165,7 @@ div.compendium-background {
   width: 220px;
   box-shadow: 0px 0px 16px 0px var(--mystical-violet);
   /* background-color: var(--enchanted-wood); */
-  background-image: url("../public/images/background/potion-recipe.webp");
+  background-image: url("../public/images/background/weapon-recipe.webp");
 }
 
 .compendium-monster .compendium-monster-front > p.compendium-monster-drops {
@@ -176,7 +176,7 @@ div.compendium-background {
   z-index: 10;
   /* box-shadow: 0px 0px 16px 0px var(--mystical-violet); */
   /* background-color: var(--enchanted-wood); */
-  /* background-image: url("../public/images/background/potion-recipe.webp"); */
+  /* background-image: url("../public/images/background/weapon-recipe.webp"); */
 }
 
 .compendium-monster img.compendium-monster-image {
