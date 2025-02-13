@@ -9,7 +9,7 @@ export function getWeaponMaterials(weapon) {
     .map(([key, value]) => ({ material: key, amount: value }));
 }
 
-// Sjekker om de nåværende ingrediensene matcher en våpenoppskrift nøyaktig
+// Sjekker om de nåværende ingrediensene matcher en våpenoppskrift
 export function checkIfIngredientsMatchWeapon(weaponName) {
   const weaponMaterials = getWeaponMaterials(weaponName);
   console.log(`Checking ${weaponName} with requirements:`, weaponMaterials);
@@ -21,7 +21,7 @@ export function checkIfIngredientsMatchWeapon(weaponName) {
     }
     const currentAmount = ingredients[material].amount;
     console.log(`For ${material}: requires ${amount}, current amount is ${currentAmount}`);
-    return currentAmount === amount;
+    return currentAmount >= amount;
   });
 
   console.log(`Is ${weaponName} a match?`, isMatch);
@@ -32,6 +32,8 @@ export function checkIfIngredientsMatchWeapon(weaponName) {
 export function getMonsterIngredient(monster, ingredient) {
   return monsters[monster][ingredient];
 }
+
+
 
 
 
